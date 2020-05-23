@@ -1,0 +1,105 @@
+<div>
+
+    <table border="1" id="main">
+
+        <!-- th -->
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+            <th>Batch</th>
+            <th>College</th>
+            
+            <th>WebD</th>
+            <th>React</th>
+            <th>DSA</th>
+            <th>Company</th>
+            <th>Date</th>
+            <th>Result</th>
+            <th>Status</th>
+        </tr>
+
+        <% for(stu of student){ %>
+            <% let i = stu.interview.length-1; %>
+
+            <% while(i >= 0){ %>
+
+                <tr>
+                    <td><%= stu._id %> </td>
+                    <td><%= stu.name.toUpperCase() %></td>
+                    <td><%= stu.batch %></td>
+                    <td><%= stu.college.toUpperCase() %></td>
+                    
+                    <td><%= stu.course_score.webd %></td>
+                    <td><%= stu.course_score.react %></td>
+                    <td><%= stu.course_score.dsa %></td>
+                    <td><%= stu.interview[i].company.toUpperCase() %></td>
+                    <td><%= stu.interview[i].date %></td>
+                    <% let data = "" %>
+                    <% let data2 = "" %>
+
+                    <% for(res in result){ %>
+                        <% console.log(res) %> 
+                    <% } %> 
+                    
+                    <% for(let j=0; j<result.length; j++) { %> 
+                         
+                        <%# console.log(typeof(result[j].student._id), typeof(stu._id), typeof(stu.interview[j]._id), typeof(result[i].interview._id)) %> 
+                        <% console.log(result[j].student._id, stu._id, stu.interview[i]._id, result[j].interview._id) %> 
+                        <% if((result[j].student._id.equals(stu._id)) && (result[j].interview._id.equals(stu.interview[i]._id))) { %>
+                            <% console.log("true") %> 
+                            <% data = result[j].result; %>
+                            <% data2 = result[j].status; %> 
+                        <% } %>
+                    <% } %> 
+
+                    
+
+                    <td> <%= data %>  </td>
+                    <td><%= data2 %></td>
+                    
+                </tr>
+                
+                <% i--; %> 
+            <% } %> 
+
+        <% } %> 
+
+    </table>
+
+    <button class="btn btn-dec-rev" onclick="exportToExcel('main', 'newfile')">Export To Excel File</button>
+
+</div>
+
+<script type="text/javascript">
+function exportToExcel(tableID, filename = ''){
+    var downloadurl;
+    var dataFileType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTMLData = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'export_excel_data.xls';
+    
+    // Create download link element
+    downloadurl = document.createElement("a");
+    
+    document.body.appendChild(downloadurl);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTMLData], {
+            type: dataFileType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadurl.href = 'data:' + dataFileType + ', ' + tableHTMLData;
+    
+        // Setting the file name
+        downloadurl.download = filename;
+        
+        //triggering the function
+        downloadurl.click();
+    }
+}
+ 
+</script>

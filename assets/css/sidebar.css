@@ -1,0 +1,67 @@
+:root{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    --sidebar-color: rgb(114, 27, 27);
+}
+.btn{
+    font-size: medium;
+    font-weight: 300;
+    margin: 10px 0px;
+    
+}
+.btn-pad{
+    justify-content: center;
+    align-self: center;
+}
+.btn-dec{
+    font-size: 0.7rem;
+    padding: 7px 10px;
+    border: none;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    color: rgb(158, 47, 47);
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+.btn-dec:hover{
+    background-color: rgb(158, 47, 47);
+    color: rgb(240, 233, 233);
+}
+.btn-dec:focus{
+    outline: none;
+}
+.btn-dec-rev{
+    font-size: 0.7rem;
+    padding: 7px 10px;
+    border: none;
+    font-weight: 700;
+    background-color: rgb(158, 47, 47);
+    color: rgb(245, 245, 245);
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-dec-rev:hover{
+    background-color: rgb(236, 195, 195);
+    color: rgb(158, 47, 47);
+}
+.btn-dec-rev:focus{
+    outline: none;
+}
+.sidebar{
+    margin: 0px;
+    margin-right: 10px;
+    height: 100vh;
+    width: 70px;
+    background-color: var(--sidebar-color);
+    position: fixed;
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+}
+.icon-elements{
+    position: absolute;
+    top: 30px;
+    left: 0%;
+}

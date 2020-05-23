@@ -1,0 +1,20 @@
+<form action="/interview/add-student-interview/<%= interview[0]._id %>" method="POST">
+    <div>
+         <h4>Comapny</h4><%= interview[0].company %>
+         <br>
+         <br>
+        <h4>Date</h4> <%= interview[0].date %>
+    </div>
+    <br>
+    <select name="student" id="student">
+        <% for(stu of student){%>
+            <option value="<%= stu._id %>"><%= stu._id %> / <%= stu.name.toUpperCase() %></option>
+        <%}%>
+    </select>
+    <br>
+    <br>
+    <div>
+        <input type="submit" name="submit" id="submit"  class="btn btn-dec-rev">
+    </div>
+    
+</form>

@@ -1,0 +1,33 @@
+<% if(locals.user){ %>
+    <div>
+        
+        <table border="1">
+            <tr>
+                <th rowspan="2">NAME</th>
+                <th rowspan="2">BATCH</th>
+                <th rowspan="2">COLLEGE</th>
+                <th colspan="3">SCORE</th>
+            </tr>
+            <tr>
+                <th>DSA</th>
+                <th>WebD</th>
+                <th>React</th>
+            </tr>
+            <% for(d of detail){ %>
+                <tr>
+                    <th><%= d.name.toUpperCase() %></th>
+                    <th><%= d.batch %></th>
+                    <th><%= d.college.toUpperCase() %></th>
+                    <th><%= d.course_score.dsa %></th>
+                    <th><%= d.course_score.webd %></th>
+                    <th><%= d.course_score.react %></th>
+                </tr>
+                
+            <% } %> 
+        </table>
+    
+    </div>
+
+    <a href="/student/add-student"><button class="btn btn-dec-rev">Add student</button></a>
+<% } %>  
+

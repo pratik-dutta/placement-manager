@@ -1,0 +1,50 @@
+<div>
+    <%= Interview_company %> 
+    <%= Date %> 
+    <ul>
+        <% for(student of students){ %>
+            <li><%= student.name %> </li>
+        <% } %> 
+    </ul>
+    
+
+
+    <table border="1">
+        
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Result</th>
+        </tr>
+
+        
+        <% for(student of students){ %>
+            <tr>
+                <td><%= student.name %> </td>
+                
+                <%# for(res of result){ %>
+                    <form action="/interview/save-result/<%= id%>/<%= student._id %>", method="POST">
+
+                        <%#if(res.student === student._id && res.interview === id){%>
+                            <!-- <td> <input type="text" name="result" id="result" placeholder="<%#= res.result %> "></td> -->
+                        <%#}else{%>
+                            <td><input type="text" name="status" id="status"></td>
+                            <td><input type="text" name="result" id="result"></td>
+                        <%# } %> 
+                        <td>
+                            <!-- <a href="/save-result/<%#= id%>/<%#= student._id %>">Save</a> -->
+                            <input class="btn btn-dec-rev" type="submit" name="submit" id="submit">
+                        </td>
+
+                    </form>
+                    
+                <%# } %>  
+                
+            </tr>
+        <% } %> 
+        
+        
+
+    </table>
+
+</div>

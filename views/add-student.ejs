@@ -1,0 +1,34 @@
+<div>
+    <h1>Add Student</h1>
+
+    <form action="/student/create-student" method="POST">
+        <br>
+        <label for="name"> Name</label>
+        <input type="text" name="name" id="name">
+        <br style="margin: 7px;" />
+        <label for="batch">Batch</label>
+        <input type="batch" name="batch" id="batch">
+        <br>
+        <!-- Student Details -->
+        <div>
+            <label for="college"> College</label>
+            <input type="text" name="college" id="college">
+            
+        </div>
+        
+        <!-- Student Score -->
+        <div>
+            <label for="dsa">DSA Score</label>
+            <input type="number" name="dsa" id="dsa">
+            <br>
+            <label for="webd">WebD Score</label>
+            <input type="number" name="webd" id="webd">
+            <br>
+            <label for="react">React Score</label>
+            <input type="number" name="react" id="react">
+        </div>
+
+
+        <input class="btn btn-dec-rev" type="submit" name="submit" id="submit">
+    </form>
+</div>
