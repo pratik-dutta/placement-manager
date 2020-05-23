@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING RESULT SCHEMA*****************************/
 const resultSchema = new mongoose.Schema({
     status:{
         type: String
@@ -17,6 +19,8 @@ const resultSchema = new mongoose.Schema({
     }
 });
 
+/******************MAKING MODEL*********************************/
 const Result = mongoose.model("Result", resultSchema);
 
+/*****************EXPORTING MODEL*******************************/
 module.exports = Result;

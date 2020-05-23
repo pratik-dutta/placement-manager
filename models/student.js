@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING RESULT SCHEMA*****************************/
 const studentSchema = new mongoose.Schema({
     name:{
         type: String
@@ -19,13 +21,11 @@ const studentSchema = new mongoose.Schema({
             type: mongoose.Schema.ObjectId,
             ref: "Interview"
         }
-    ],
-    // result:{
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: "Result"
-    // }
+    ]
 });
 
+/******************MAKING MODEL*********************************/
 const Student = mongoose.model("Student", studentSchema);
 
+/*****************EXPORTING MODEL*******************************/
 module.exports = Student;

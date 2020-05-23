@@ -1,7 +1,6 @@
+/****************IMPORTING PACKAGE/MODELS*************************/
 const passport = require("passport");
-
 const LocalStrategy = require("passport-local").Strategy;
-
 const User = require("../models/user");
 
 //authentication using passport

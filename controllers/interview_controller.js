@@ -1,3 +1,4 @@
+/****************IMPORTING PACKAGE/MODELS*************************/
 const User = require("../models/user");
 const Student = require("../models/student");
 const Score = require("../models/score");
@@ -5,8 +6,7 @@ const Interview = require("../models/interview");
 const Result = require("../models/result");
 const passport = require("passport");
 
-
-
+/**********EXPORTING FUNCTION FOR listInterview ROUTE******************/
 module.exports.listInterviewPage = async function(req, res){
     try{
         let interviews = await Interview.find({})
@@ -19,6 +19,7 @@ module.exports.listInterviewPage = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR addInterview ROUTE******************/
 module.exports.addInterview = async function(req, res){
     try{
         return res.render("add-interview");
@@ -27,6 +28,7 @@ module.exports.addInterview = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR createInterview ROUTE******************/
 module.exports.createInterview = async function(req, res){
     try{
         let interview = await Interview.create({
@@ -45,8 +47,7 @@ module.exports.createInterview = async function(req, res){
     }
 }
 
-
-
+/**********EXPORTING FUNCTION FOR scheduleInterview ROUTE******************/
 module.exports.scheduleInterview = async function(req, res){
     try{
         let interviewId = req.params.id;
@@ -64,8 +65,7 @@ module.exports.scheduleInterview = async function(req, res){
     }
 }
 
-
-
+/**********EXPORTING FUNCTION FOR addStudentInterview ROUTE******************/
 module.exports.addSudentInterview = async function(req, res){
     try{
         let interviewId = req.params.id;
@@ -92,6 +92,7 @@ module.exports.addSudentInterview = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR saveResult ROUTE******************/
 module.exports.saveResult = async function(req, res){
     try{
 

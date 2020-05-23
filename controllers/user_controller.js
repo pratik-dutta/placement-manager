@@ -1,3 +1,4 @@
+/****************IMPORTING PACKAGE/MODELS*************************/
 const User = require("../models/user");
 const Student = require("../models/student");
 const Score = require("../models/score");
@@ -5,6 +6,7 @@ const Interview = require("../models/interview");
 const Result = require("../models/result");
 const passport = require("passport");
 
+/**********EXPORTING FUNCTION FOR SignUp ROUTE******************/
 module.exports.signUp = async function(req, res){
     try{
         let user = await User.findOne({ email: req.body.email});
@@ -33,6 +35,7 @@ module.exports.signUp = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR SignInpage ROUTE******************/
 module.exports.signInPage = async function(req, res){
     try{
         if(req.isAuthenticated()){
@@ -44,6 +47,7 @@ module.exports.signInPage = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR SignUppage ROUTE******************/
 module.exports.signUpPage = async function(req, res){
     try{
         if(req.isAuthenticated()){
@@ -55,6 +59,7 @@ module.exports.signUpPage = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR SignIn ROUTE******************/
 module.exports.signIn = async function(req, res){
     try{
         req.flash("success", "Logged In successfully");
@@ -64,7 +69,7 @@ module.exports.signIn = async function(req, res){
     }
 }
 
-
+/**********EXPORTING FUNCTION FOR MainPage ROUTE******************/
 module.exports.mainPage = async function(req, res){
     try{
         if(!req.isAuthenticated()){
@@ -83,6 +88,7 @@ module.exports.mainPage = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR SignOut ROUTE******************/
 module.exports.signOut = async function(req, res){
     req.logout();
     req.flash("success", "Sign Out Successfully");

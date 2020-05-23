@@ -1,3 +1,4 @@
+/****************IMPORTING PACKAGE/MODELS*************************/
 const User = require("../models/user");
 const Student = require("../models/student");
 const Score = require("../models/score");
@@ -5,7 +6,7 @@ const Interview = require("../models/interview");
 const Result = require("../models/result");
 const passport = require("passport");
 
-
+/**********EXPORTING FUNCTION FOR addStudent ROUTE******************/
 module.exports.addStudent = async function(req, res){
     try{
         return res.render("add-student");
@@ -14,6 +15,7 @@ module.exports.addStudent = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR createStudent ROUTE******************/
 module.exports.createStudent = async function(req, res){
     try{
         console.log(req.body);
@@ -42,6 +44,7 @@ module.exports.createStudent = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR listStudent ROUTE******************/
 module.exports.listStudents = async function(req, res){
     try{
         if(!req.isAuthenticated()){
@@ -63,6 +66,7 @@ module.exports.listStudents = async function(req, res){
     }
 }
 
+/**********EXPORTING FUNCTION FOR Alldetails ROUTE******************/
 module.exports.allDetails = async function(req, res){
     try{
         

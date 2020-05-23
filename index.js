@@ -1,3 +1,4 @@
+/******************IMPORTING PACKAGE/FILES****************************/
 const port = 8000;
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
@@ -57,13 +58,14 @@ app.use(passport.session());
 //set the user authentication
 app.use(passport.setAuthenticatedUser);
 
-//using flash
+/******************USING FLASH****************************/
 app.use(flash());
 app.use(flashMiddleware.setFlash);
 
-//using express router
+/******************USING ROUTER****************************/
 app.use("/", require("./routes/index"));
 
+/******************LISTENING TO PORT***********************/
 app.listen(port, function(err){
     if(err){
         console.log("Server is not Listening due to", err);

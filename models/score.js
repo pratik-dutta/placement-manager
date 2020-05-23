@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING RESULT SCHEMA*****************************/
 const scoreSchema = new mongoose.Schema({
     dsa: {
         type: String
@@ -16,6 +18,8 @@ const scoreSchema = new mongoose.Schema({
     }
 });
 
+/******************MAKING MODEL*********************************/
 const Score = mongoose.model("Score", scoreSchema);
 
+/*****************EXPORTING MODEL*******************************/
 module.exports = Score;

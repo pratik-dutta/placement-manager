@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING RESULT SCHEMA*****************************/
 const userSchema = new mongoose.Schema({
     email:{
         type: String,
@@ -11,5 +13,8 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+/******************MAKING MODEL*********************************/
 const User = mongoose.model("User", userSchema);
+
+/*****************EXPORTING MODEL*******************************/
 module.exports = User;
