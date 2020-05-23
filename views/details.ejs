@@ -43,10 +43,9 @@
                     
                     <% for(let j=0; j<result.length; j++) { %> 
                          
-                        <%# console.log(typeof(result[j].student._id), typeof(stu._id), typeof(stu.interview[j]._id), typeof(result[i].interview._id)) %> 
-                        <% console.log(result[j].student._id, stu._id, stu.interview[i]._id, result[j].interview._id) %> 
+                        
                         <% if((result[j].student._id.equals(stu._id)) && (result[j].interview._id.equals(stu.interview[i]._id))) { %>
-                            <% console.log("true") %> 
+                            
                             <% data = result[j].result; %>
                             <% data2 = result[j].status; %> 
                         <% } %>

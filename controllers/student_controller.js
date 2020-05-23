@@ -31,21 +31,7 @@ module.exports.createStudent = async function(req, res){
             dsa: req.body.dsa
         });
 
-        // let interview = await Interview.create({
-        //     company: req.body.company,
-        //     date: req.body.date,
-        //     student: student._id
-        // });
-
-        // let result = await Result.create({
-        //     student: student._id,
-        //     interview: interview._id,
-        //     result: req.body.result
-        // });
-
         student.course_score = score._id;
-        // student.interview = interview._id;
-        // student.result = result._id;
 
         await student.save();
 
@@ -60,14 +46,14 @@ module.exports.listStudents = async function(req, res){
     try{
         let interviewId = req.params.id;
         let interview = await Interview.findOne({_id: interviewId}).populate("student");
-        // let result = await Result.find({interview: interviewId});
-        // console.log(result);
+        let result = await Result.find({interview: interviewId}).populate("student").populate("interview");
+        
         return res.render("all-students",{
             Interview_company: interview.company,
             Date: interview.date,
             students: interview.student,
             id: interview._id,
-            // result
+            result: result
         });
     }catch(err){
         console.log("Erro in listStudents", err)
@@ -78,13 +64,7 @@ module.exports.allDetails = async function(req, res){
     try{
         let student = await Student.find({}).populate("course_score").populate("interview");
         let result = await Result.find({}).populate("student").populate("interview");
-        // .populate("student").populate("interview");
-        // console.log("su",stu);
-        // console.log("int",stu.interview);
-        // return res.status(200).json({
-        //     data: student,
-        //     res: result
-        // });
+        
         return res.render("details", {
             student,
             result
