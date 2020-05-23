@@ -30,14 +30,19 @@
                         <%if(res.student._id.equals(student._id) && res.interview._id.equals(id)){%>
                             <td> <input type="text" name="status" id="status" placeholder="<%= res.status %>"></td>
                             <td> <input type="text" name="result" id="result" placeholder="<%= res.result %>"></td>
+                            <td>
+                                <!-- <a href="/save-result/<%#= id%>/<%#= student._id %>">Save</a> -->
+                                <input class="btn btn-dec-rev" type="submit" name="submit" id="submit">
+                            </td>
                         <%}else{%>
                             <td><input type="text" name="status" id="status"></td>
                             <td><input type="text" name="result" id="result"></td>
+                            <td>
+                                <!-- <a href="/save-result/<%#= id%>/<%#= student._id %>">Save</a> -->
+                                <input class="btn btn-dec-rev" type="submit" name="submit" id="submit">
+                            </td>
                         <% } %> 
-                        <td>
-                            <!-- <a href="/save-result/<%#= id%>/<%#= student._id %>">Save</a> -->
-                            <input class="btn btn-dec-rev" type="submit" name="submit" id="submit">
-                        </td>
+                        
 
                     </form>
                     

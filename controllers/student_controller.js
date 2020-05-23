@@ -18,7 +18,7 @@ module.exports.addStudent = async function(req, res){
 /**********EXPORTING FUNCTION FOR createStudent ROUTE******************/
 module.exports.createStudent = async function(req, res){
     try{
-        console.log(req.body);
+        
         let student = await Student.create({
             name: req.body.name,
             batch: req.body.batch,

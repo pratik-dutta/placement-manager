@@ -20,11 +20,11 @@ module.exports.signUp = async function(req, res){
                     password: req.body.password
                 }, function(err, user){
                     if(err){console.log("error in creating new user", err); return;}
-                    console.log("User created successfully")
+                    // console.log("User created successfully")
                     return res.render("signin-page");
                 });
             }else{
-                console.log("password is not matching");
+                // console.log("password is not matching");
                 req.flash("error", "Password is not matching");
                 return res.redirect("signup-page");
             }
