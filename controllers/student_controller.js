@@ -44,6 +44,9 @@ module.exports.createStudent = async function(req, res){
 
 module.exports.listStudents = async function(req, res){
     try{
+        if(!req.isAuthenticated()){
+            return res.redirect("/");
+        }
         let interviewId = req.params.id;
         let interview = await Interview.findOne({_id: interviewId}).populate("student");
         let result = await Result.find({interview: interviewId}).populate("student").populate("interview");
@@ -62,6 +65,7 @@ module.exports.listStudents = async function(req, res){
 
 module.exports.allDetails = async function(req, res){
     try{
+        
         let student = await Student.find({}).populate("course_score").populate("interview");
         let result = await Result.find({}).populate("student").populate("interview");
         

@@ -67,6 +67,9 @@ module.exports.signIn = async function(req, res){
 
 module.exports.mainPage = async function(req, res){
     try{
+        if(!req.isAuthenticated()){
+            return res.redirect("/");
+        }
         let details = await Student.find({})
         .sort("-createdAt")
         .populate("course_score")
